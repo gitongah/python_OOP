@@ -29,7 +29,7 @@ class Stock(Asset):
     # TODO: the __lt__ establishes < relationship with another obj
     def __lt__(self, value):
         if not isinstance(value, Stock):
-            raise ValueError("Can not compare  book to a non-book")
+            raise ValueError("Can not compare  stock to a non-stock")
         
         return self.price < value.price
 
@@ -47,7 +47,7 @@ class Bond(Asset):
     # TODO: the __lt__ establishes < relationship with another obj
     def __lt__(self, value):
         if not isinstance(value, Bond):
-            raise ValueError("Can not compare  book to a non-book")
+            raise ValueError("Can not compare  bond to a non-bond")
         
         return self.price < value.price
 
