@@ -23,6 +23,16 @@ class Stock(Asset):
         self.company = company
         self.ticker = ticker
 
+    def __str__(self):
+        return f"{self.ticker},{self.price}, {self.company}"
+    
+    # TODO: the __lt__ establishes < relationship with another obj
+    def __lt__(self, value):
+        if not isinstance(value, Stock):
+            raise ValueError("Can not compare  book to a non-book")
+        
+        return self.price < value.price
+
 
 class Bond(Asset):
     def __init__(self, price, description, duration, yieldamt):
@@ -30,6 +40,16 @@ class Bond(Asset):
         self.description = description
         self.duration = duration
         self.yieldamt = yieldamt
+
+    def __str__(self):
+        return f"{self.price},{self.description}, {self.duration}, {self.yieldamt}"
+    
+    # TODO: the __lt__ establishes < relationship with another obj
+    def __lt__(self, value):
+        if not isinstance(value, Bond):
+            raise ValueError("Can not compare  book to a non-book")
+        
+        return self.price < value.price
 
 
 # ~~~~~~~~~ TEST CODE ~~~~~~~~~
